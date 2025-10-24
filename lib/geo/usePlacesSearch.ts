@@ -43,7 +43,7 @@ export function usePlacesSearch(
   const [activeTarget, setActiveTarget] = useState<PlaceSuggestion | null>(null);
   const [fetchState, setFetchState] = useState<FetchState>("idle");
   const cacheRef = useRef<Map<CacheKey, CachedSuggestions>>(
-    () => new Map<CacheKey, CachedSuggestions>(),
+    new Map<CacheKey, CachedSuggestions>(),
   );
   const locationRef = useRef<GeoPoint | null>(currentLocation);
 

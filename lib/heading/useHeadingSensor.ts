@@ -25,12 +25,12 @@ export function useHeadingSensor(): HeadingState {
   const [status, setStatus] = useState<PermissionState>("prompt");
   const [headingDegrees, setHeadingDegrees] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const listenerRef = useRef<() => void>();
+  const listenerRef = useRef<(() => void) | null>(null);
 
   const clearListener = useCallback(() => {
     if (listenerRef.current) {
       listenerRef.current();
-      listenerRef.current = undefined;
+      listenerRef.current = null;
     }
   }, []);
 
